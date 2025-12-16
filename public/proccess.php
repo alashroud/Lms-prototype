@@ -114,14 +114,13 @@ switch ($action) {
 
 function UploadImage(){
 
-	$target_dir = "admin/borrower/photos/";
+	$target_dir = BORROWER_PHOTO_PATH;
 	$target_file = $target_dir . date("dmYhis") . basename($_FILES["picture"]["name"]);
 	$uploadOk = 1;
-	$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+	$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+	$allowedTypes = ['jpg','jpeg','png','gif'];
 	
-	
-	if($imageFileType != "jpg" || $imageFileType != "png" || $imageFileType != "jpeg"
-	|| $imageFileType != "gif" ) {
+	if(in_array($imageFileType, $allowedTypes, true)) {
 		 if (move_uploaded_file($_FILES["picture"]["tmp_name"], $target_file)) {
 			return  date("dmYhis") . basename($_FILES["picture"]["name"]);
 		}else{

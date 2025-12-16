@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<?php  $q = isset($_GET['q']) ? $_GET['q'] :'';?>
+<?php  $q = isset($_GET['q']) ? htmlspecialchars($_GET['q'], ENT_QUOTES, 'UTF-8') :'';?>
 
 <html lang="en">
 
@@ -36,9 +36,6 @@
         <!-- Owl Carousel JS -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-
-        <!-- jQuery -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
         <!-- Css3 Transitions Styles  -->
         <link rel="stylesheet" type="text/css" href="<?php echo web_root;?>asset/css/animate.css">

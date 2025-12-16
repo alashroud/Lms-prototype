@@ -148,12 +148,16 @@
 
  
 <?php 
+global $mydb;
+$sanitizeInput = function ($value) use ($mydb) {
+    return $mydb->escape_value(strip_tags(trim($value ?? '')));
+};
 
-$title = $_POST['BookTitle'];
-$category = $_POST['Category'];
-$author = $_POST['Author'];
-$publisher = $_POST['BookPublisher'];
-$publisheddate = $_POST['PublishDate'];
+$title = $sanitizeInput($_POST['BookTitle'] ?? '');
+$category = $sanitizeInput($_POST['Category'] ?? '');
+$author = $sanitizeInput($_POST['Author'] ?? '');
+$publisher = $sanitizeInput($_POST['BookPublisher'] ?? '');
+$publisheddate = $sanitizeInput($_POST['PublishDate'] ?? '');
 
 
 

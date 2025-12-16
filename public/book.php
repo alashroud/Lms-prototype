@@ -1,6 +1,10 @@
-  <?php 
+<?php 
+    global $mydb;
     $category = isset($_GET['category']) ? $_GET['category'] : ''; 
     $page = isset($_GET['page']) ? $_GET['page'] : 1; 
+
+    $category = $mydb->escape_value($category);
+    $page = max(1, (int)$page);
  
         $no_of_records_per_page = 10;
         $offset = ($page-1) * $no_of_records_per_page; 
