@@ -20,7 +20,16 @@ $object = $book->single_books($id);
           <div class="col-md-12"> 
     <div class="form-row">
         <div class="col-md-6">
-            <div class="form-group"><label class="small mb-1" for="AccessionNo">IBSN</label><input class="form-control " id="IBSN" name="IBSN" type="text" placeholder="Enter IBSN" readonly="off" value="<?php echo $object->IBSN;?>" /></div>
+            <div class="form-group">
+              <label class="small mb-1" for="IBSN">IBSN</label>
+              <div class="input-group">
+                <input class="form-control " id="IBSN" name="IBSN" type="text" placeholder="Enter IBSN" readonly="off" value="<?php echo $object->IBSN;?>" />
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary" type="button" id="openLibraryFetch">Fetch from OpenLibrary</button>
+                </div>
+              </div>
+              <small id="openLibraryStatus" class="form-text text-muted">Fetch updated details from OpenLibrary.</small>
+            </div>
         </div> 
     </div>
     <div class="form-row">
@@ -120,6 +129,7 @@ $object = $book->single_books($id);
 </div>
 </div>
 
+<script src="openlibrary.js"></script>
 <script>
 function formatDateInput(input) {
     // Remove any non-digit characters

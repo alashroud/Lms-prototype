@@ -12,7 +12,16 @@
  <div class="col-md-12"> 
     <div class="form-row">
         <div class="col-md-6">
-            <div class="form-group"><label class="small mb-1" for="IBSN">IBSN</label><input class="form-control " id="IBSN" name="IBSN" type="text" placeholder="Enter IBSN" /></div>
+            <div class="form-group">
+                <label class="small mb-1" for="IBSN">IBSN</label>
+                <div class="input-group">
+                    <input class="form-control " id="IBSN" name="IBSN" type="text" placeholder="Enter IBSN" />
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="button" id="openLibraryFetch">Fetch from OpenLibrary</button>
+                    </div>
+                </div>
+                <small id="openLibraryStatus" class="form-text text-muted">Use OpenLibrary to prefill details by ISBN.</small>
+            </div>
         </div> 
     </div>
     <div class="form-row">
@@ -107,6 +116,7 @@
 </div>
 </div>
 
+<script src="openlibrary.js"></script>
 <script>
 function formatDateInput(input) {
     // Remove any non-digit characters
