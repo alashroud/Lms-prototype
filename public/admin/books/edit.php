@@ -21,7 +21,7 @@ $object = $book->single_books($id);
     <div class="form-row">
         <div class="col-md-6">
             <div class="form-group">
-              <label class="small mb-1" for="AccessionNo">IBSN</label>
+              <label class="small mb-1" for="IBSN">IBSN</label>
               <div class="input-group">
                 <input class="form-control " id="IBSN" name="IBSN" type="text" placeholder="Enter IBSN" readonly="off" value="<?php echo $object->IBSN;?>" />
                 <div class="input-group-append">
