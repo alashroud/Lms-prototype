@@ -41,8 +41,8 @@ document.addEventListener('DOMContentLoaded', () => {
       : (bookData.description && bookData.description.value) || '';
 
     setValueIfEmpty('BookTitle', bookData.title || '');
-    setValueIfEmpty('Author', authors[0] ? authors[0].name : '');
-    setValueIfEmpty('BookPublisher', publishers[0] ? publishers[0].name : '');
+    setValueIfEmpty('Author', authors[0] && authors[0].name ? authors[0].name : '');
+    setValueIfEmpty('BookPublisher', publishers[0] && publishers[0].name ? publishers[0].name : '');
     setValueIfEmpty('BookDesc', description || bookData.subtitle || '');
 
     const normalizedDate = normalizeDate(bookData.publish_date || '');
